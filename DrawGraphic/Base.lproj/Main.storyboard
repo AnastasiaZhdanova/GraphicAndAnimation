@@ -24,6 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilh-zT-3gH" customClass="GraphView" customModule="DrawGraphic" customModuleProvider="target">
                                         <rect key="frame" x="12.5" y="25" width="195" height="170"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="eCJ-3k-MAP"/>
                                             <constraint firstAttribute="width" constant="195" id="iDi-sk-HVm"/>
@@ -36,6 +37,9 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="0U1-hn-Rh0" appends="YES" id="JLy-Lg-Bap"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,6 +68,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0U1-hn-Rh0">
+                    <connections>
+                        <action selector="repeatTap:" destination="BYZ-38-t0r" id="GTw-sS-fxL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>

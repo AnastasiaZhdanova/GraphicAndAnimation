@@ -48,16 +48,33 @@ class GraphView: UIView {
         }
         circleLayer = CAShapeLayer()
         circleLayer.path = graphPath.cgPath
-        circleLayer.fillColor = UIColor.clear.cgColor
+ //      circleLayer.fillColor = UIColor.clear.cgColor
+        circleLayer.fillColor = UIColor.red.cgColor
+ //       circleLayer.opacity = 0.4
+        circleLayer.lineJoin = CAShapeLayerLineJoin.miter // острый конец линии
         circleLayer.strokeColor = lineColor.cgColor
         circleLayer.lineWidth = lineWidth
         circleLayer.strokeEnd = 1.0
         layer.addSublayer(circleLayer)
         
         let animationGraph = CABasicAnimation(keyPath: "strokeEnd")
+
         animationGraph.duration = 5
         animationGraph.fromValue = 0
         animationGraph.toValue = 1
+        animationGraph.fillMode = CAMediaTimingFillMode.both
+        
+        let fillColorAnimation = CABasicAnimation(keyPath: "fillColor")
+ //       fillColorAnimation.toValue = UIColor.red.cgColor
+        fillColorAnimation.toValue = UIColor.clear.cgColor
+        fillColorAnimation.duration = 1.5
+        fillColorAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        fillColorAnimation.autoreverses = true
+      //  fillColorAnimation.repeatCount = .greatestFiniteMagnitude
+        
+        circleLayer.add(fillColorAnimation, forKey: "fillColorAnimation")
+        
         circleLayer.add(animationGraph, forKey: "lessAnimation")
+        
     }
 }

@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var graphControler: GraphView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      graphControler.setNeedsDisplay() //перезапуск draw
     }
 
 
+    @IBAction func repeatTap(_ sender: Any) {
+         graphControler.setNeedsDisplay() //перезапуск draw
+    }
 }
 
